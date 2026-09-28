@@ -6,6 +6,9 @@ import { BlogPreview } from "@/components/BlogPreview";
 import { Contact } from "@/components/Contact";
 
 // metadata.title / description se heredan del layout (generateMetadata)
+// Las noticias del inicio se refrescan al publicar desde /admin y, como respaldo, cada 5 minutos
+export const revalidate = 300;
+
 export default function HomePage() {
   return (
     <>

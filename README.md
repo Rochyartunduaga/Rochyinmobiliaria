@@ -10,7 +10,8 @@ Construida con **Next.js 16 (App Router) + TypeScript + Tailwind CSS v4**, lista
 | Secciones Inicio · Oasis · Reseñas · Blog · Contacto | `src/app/page.tsx`, `src/components/` |
 | Botón flotante de WhatsApp | `src/components/WhatsAppButton.tsx` |
 | Formulario de contacto (Server Action + `/api/contact`) | `src/components/ContactForm.tsx`, `src/app/actions.ts`, `src/app/api/contact/route.ts`, `src/lib/contact.ts` |
-| Blog en MDX | `content/blog/*.mdx`, `src/app/blog/` |
+| Blog administrable (Supabase) | `src/app/(site)/blog/`, `src/lib/posts.ts` |
+| Panel de administración `/admin` | `src/app/admin/`, `src/proxy.ts`, `src/lib/admin.ts` |
 | Multi-idioma (next-intl, español) | `messages/es.json`, `src/i18n/request.ts` |
 | Mapa de Google Maps | `src/components/Contact.tsx` (usa `mapQuery` de `src/lib/site.ts`) |
 | Reservas / citas con Calendly | `src/components/Contact.tsx` (variable `NEXT_PUBLIC_CALENDLY_URL`) |
@@ -21,10 +22,11 @@ Construida con **Next.js 16 (App Router) + TypeScript + Tailwind CSS v4**, lista
 ## Estructura
 
 ```
-content/blog/            Artículos del blog (.mdx con frontmatter)
+supabase/                SQL para crear tablas, permisos y almacenamiento
 messages/es.json         Todos los textos del sitio
 public/images/           Fotos del proyecto (crear y agregar aquí)
-src/app/                 Páginas, Server Action y API
+src/app/(site)/          Páginas públicas (inicio y blog)
+src/app/admin/           Panel privado (noticias y mensajes)
 src/components/          Header, Hero, Oasis, Reviews, CTA, Contact, Footer…
 src/lib/site.ts          Configuración: WhatsApp, redes, mapa, imágenes, video
 src/i18n/request.ts      Configuración de next-intl
@@ -66,19 +68,32 @@ Sin configuración, los mensajes se registran en los logs del servidor. Para rec
 1. Crea una cuenta en [Resend](https://resend.com) y verifica tu dominio.
 2. Define `RESEND_API_KEY`, `CONTACT_TO_EMAIL` y `CONTACT_FROM_EMAIL`.
 
-## Blog
+## Blog y panel de administración
 
-Crea un archivo en `content/blog/mi-articulo.mdx` (nombre en minúsculas y guiones):
+Las noticias se guardan en Supabase y se administran desde **`/admin`** (ej. `https://rochyinmobiliaria.vercel.app/admin`).
+Desde ahí se pueden crear, editar, publicar/despublicar y eliminar noticias con imagen de portada,
+y ver los mensajes que llegan por el formulario de contacto.
 
-```mdx
----
-title: "Título del artículo"
-description: "Resumen corto para SEO y la tarjeta."
-date: "2026-10-01"
----
+### Configuración (una sola vez)
 
-Contenido en **Markdown**.
-```
+1. Ejecuta `supabase/schema.sql` y luego `supabase/blog.sql` en **Supabase → SQL Editor**.
+2. Crea el usuario administrador en **Supabase → Authentication → Users → Add user → Create new user**
+   (correo + contraseña, marca **Auto Confirm User**).
+3. Dale permisos de admin ejecutando en el SQL Editor (cambia el correo):
+   ```sql
+   insert into public.admins (user_id) select id from auth.users where email = 'correo@ejemplo.com' on conflict do nothing;
+   ```
+4. Recomendado: en **Authentication → Sign In / Providers → Email** desactiva **Allow new users to sign up**,
+   para que nadie más pueda crear cuentas.
+
+Para quitar a un administrador: `delete from public.admins where user_id = (select id from auth.users where email = '...');`
+Para cambiar una contraseña: **Authentication → Users → ⋯ → Send password recovery** o elimina y vuelve a crear el usuario.
+
+### Seguridad
+
+- Las políticas RLS de Supabase solo permiten editar noticias, subir imágenes y leer mensajes a usuarios de la tabla `admins`.
+- El público solo puede leer noticias **publicadas** e insertar mensajes de contacto.
+- El contenido se escribe en Markdown y se muestra sin HTML crudo.
 
 ## Agregar otro idioma
 

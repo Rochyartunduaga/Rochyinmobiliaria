@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import { Lato, Playfair_Display } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -41,18 +38,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang={locale} className={`${playfair.variable} ${lato.variable}`}>
       <body>
-        <NextIntlClientProvider>
-          <a
-            href="#contenido"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-2"
-          >
-            Saltar al contenido
-          </a>
-          <Header />
-          <main id="contenido">{children}</main>
-          <Footer />
-          <WhatsAppButton />
-        </NextIntlClientProvider>
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>
   );

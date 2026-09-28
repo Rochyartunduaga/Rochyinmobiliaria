@@ -2,11 +2,11 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { SectionHeading } from "./SectionHeading";
 import { PostCard } from "./PostCard";
-import { getPosts } from "@/lib/blog";
+import { getPublishedPosts } from "@/lib/posts";
 
 export async function BlogPreview() {
   const t = await getTranslations("blog");
-  const posts = (await getPosts()).slice(0, 3);
+  const posts = await getPublishedPosts(3);
   if (posts.length === 0) return null;
 
   return (
