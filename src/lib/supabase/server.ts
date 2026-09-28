@@ -1,9 +1,7 @@
 import { createServerClient } from "@supabase/ssr";
 import { createClient as createPlainClient } from "@supabase/supabase-js";
 import { cookies } from "next/headers";
-
-const url = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+import { SUPABASE_ANON_KEY as key, SUPABASE_URL as url } from "./config";
 
 /** Cliente con la sesión del usuario (cookies). Usar en el panel /admin y sus acciones. */
 export async function createClient() {

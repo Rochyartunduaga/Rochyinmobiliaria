@@ -1,4 +1,5 @@
 ﻿import { z } from "zod";
+import { SUPABASE_ANON_KEY, SUPABASE_URL } from "@/lib/supabase/config";
 
 export const contactSchema = z.object({
   name: z.string().trim().min(2).max(100),
@@ -39,9 +40,8 @@ type ChannelResult = "sent" | "failed" | "skipped";
 
 /** Guarda el mensaje en la tabla `contactos` (ver supabase/schema.sql) vía la API REST. */
 async function saveToSupabase({ name, email, message }: ContactInput): Promise<ChannelResult> {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  if (!url || !key) return "skipped";
+  const url = SUPABASE_URL;
+  const key = SUPABASE_ANON_KEY;
 
   try {
     const res = await fetch(`${url}/rest/v1/contactos`, {

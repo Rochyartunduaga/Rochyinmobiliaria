@@ -4,9 +4,7 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 // Imágenes del blog subidas desde /admin al Storage de Supabase
-const supabaseHost = process.env.NEXT_PUBLIC_SUPABASE_URL
-  ? new URL(process.env.NEXT_PUBLIC_SUPABASE_URL).hostname
-  : "itvgygdckmkmpfgavhzy.supabase.co";
+const supabaseHost = new URL(process.env.NEXT_PUBLIC_SUPABASE_URL || "https://itvgygdckmkmpfgavhzy.supabase.co").hostname;
 
 const nextConfig: NextConfig = {
   images: {
