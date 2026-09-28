@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "title": "Oasis Cartagena | Invierte en la zona de expansión de Cartagena",
+    "description": "Oasis es un proyecto inmobiliario en la zona de mayor expansión de Cartagena, el principal destino turístico de Colombia. Invertir hoy es ganar mañana."
+  },
+  "nav": {
+    "home": "Inicio",
+    "oasis": "Oasis",
+    "reviews": "Reseñas",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "cta": "Agenda tu visita",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
+  },
+  "hero": {
+    "eyebrow": "Cartagena de Indias · Colombia",
+    "title": "Invertir hoy es ganar mañana",
+    "subtitle": "Oasis está en la zona de expansión de Cartagena, el mayor destino turístico de Colombia. Hoteles, aeropuerto, hospitales y nuevas urbanizaciones se están construyendo aquí.",
+    "primary": "¿Aún no has invertido?",
+    "secondary": "Conoce Oasis",
+    "imageAlt": "Vista del proyecto Oasis en Cartagena"
+  },
+  "oasis": {
+    "eyebrow": "El proyecto",
+    "title": "Oasis: donde crece Cartagena",
+    "intro": "La ciudad se está moviendo hacia esta zona. Cada nueva obra a su alrededor impulsa la valorización de tu inversión.",
+    "features": {
+      "location": {
+        "title": "Ubicación estratégica",
+        "text": "En la zona en expansión de Cartagena, cerca de los grandes proyectos que están transformando la ciudad."
+      },
+      "growth": {
+        "title": "Alta valorización",
+        "text": "Hoteles, aeropuerto, hospitales y urbanizaciones en construcción aumentan el valor de la zona año tras año."
+      },
+      "tourism": {
+        "title": "Destino #1 de Colombia",
+        "text": "Cartagena recibe visitantes todo el año: una demanda constante que respalda tu inversión."
+      },
+      "advisory": {
+        "title": "Asesoría personalizada",
+        "text": "Te acompañamos en cada paso, desde la primera visita hasta la firma."
+      }
+    },
+    "statsTitle": "Oasis en cifras",
+    "stats": [
+      { "value": "[PENDIENTE]", "label": "Área del proyecto" },
+      { "value": "[PENDIENTE]", "label": "Unidades / lotes" },
+      { "value": "[PENDIENTE]", "label": "Minutos al aeropuerto" },
+      { "value": "[PENDIENTE]", "label": "Precio desde" }
+    ],
+    "galleryTitle": "Galería",
+    "galleryAlt": "Imagen del proyecto Oasis",
+    "galleryPending": "foto del proyecto (render, lote, entorno o avance de obra)",
+    "videoTitle": "Mira Oasis en video",
+    "videoPending": "video del proyecto (enlace de YouTube o Vimeo)"
+  },
+  "reviews": {
+    "eyebrow": "Reseñas",
+    "title": "Lo que dicen nuestros inversionistas",
+    "items": [
+      { "quote": "[CONTENIDO PENDIENTE: reseña real de un cliente]", "name": "[Nombre del cliente]", "role": "[Ciudad / tipo de inversionista]" },
+      { "quote": "[CONTENIDO PENDIENTE: reseña real de un cliente]", "name": "[Nombre del cliente]", "role": "[Ciudad / tipo de inversionista]" },
+      { "quote": "[CONTENIDO PENDIENTE: reseña real de un cliente]", "name": "[Nombre del cliente]", "role": "[Ciudad / tipo de inversionista]" }
+    ]
+  },
+  "cta": {
+    "title": "¿Aún no has invertido?",
+    "text": "Los mejores precios son los de hoy. Habla con Rochy y conoce las opciones disponibles en Oasis.",
+    "whatsapp": "Escríbenos por WhatsApp",
+    "book": "Agenda una cita",
+    "whatsappMessage": "Hola Rochy, quiero información sobre el proyecto Oasis en Cartagena."
+  },
+  "blog": {
+    "eyebrow": "Noticias",
+    "title": "Blog e información del mercado",
+    "readMore": "Leer artículo",
+    "viewAll": "Ver todas las noticias",
+    "back": "Volver al blog",
+    "metaDescription": "Noticias sobre inversión inmobiliaria, valorización y el crecimiento de Cartagena."
+  },
+  "contact": {
+    "eyebrow": "Contacto",
+    "title": "Hablemos de tu inversión",
+    "intro": "Déjanos tus datos y te contactaremos, o agenda directamente una cita para conocer Oasis.",
+    "formTitle": "Envíanos un mensaje",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "message": "Mensaje",
+    "messagePlaceholder": "Cuéntanos qué te interesa de Oasis",
+    "submit": "Enviar mensaje",
+    "sending": "Enviando…",
+    "success": "¡Gracias! Recibimos tu mensaje y te contactaremos pronto.",
+    "error": "No pudimos enviar tu mensaje. Inténtalo de nuevo o escríbenos por WhatsApp.",
+    "invalid": "Revisa los campos marcados.",
+    "bookingTitle": "Agenda una cita",
+    "bookingPending": "Configura NEXT_PUBLIC_CALENDLY_URL para mostrar el calendario de citas.",
+    "mapTitle": "Ubicación",
+    "mapFrameTitle": "Mapa de ubicación del proyecto Oasis",
+    "phone": "Teléfono",
+    "whatsappFloat": "Escríbenos por WhatsApp"
+  },
+  "footer": {
+    "tagline": "Invertir hoy es ganar mañana.",
+    "follow": "Síguenos",
+    "rights": "Todos los derechos reservados."
+  }
+}

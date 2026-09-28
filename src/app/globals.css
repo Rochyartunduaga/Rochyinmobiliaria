@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+/*
+ * Paleta "clásica caribeña": azul mar profundo + dorado arena.
+ * El brief no definió color de marca; cambia --color-brand-* para ajustarlo.
+ */
+@theme {
+  --color-ink: #0f2a3d; /* azul profundo: textos y fondos oscuros */
+  --color-ink-soft: #3c5566;
+  --color-brand: #c9a15a; /* dorado: botones y acentos sobre fondo oscuro */
+  --color-brand-dark: #8a6326; /* dorado oscuro: enlaces/acentos sobre fondo claro (AA) */
+  --color-sand: #f7f1e6;
+  --color-sand-deep: #ece2cf;
+
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-lato), system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-serif;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-brand-dark);
+    outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold tracking-wide uppercase transition-colors;
+}
+@utility btn-primary {
+  @apply btn bg-brand text-ink hover:bg-[#d8b574];
+}
+@utility btn-outline {
+  @apply btn border border-current hover:bg-white/10;
+}
+@utility container-page {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+}
+
+/* Estilos del contenido MDX del blog */
+.prose-oasis {
+  @apply text-base leading-relaxed text-ink;
+}
+.prose-oasis :where(p, ul, ol) {
+  @apply mb-5;
+}
+.prose-oasis :where(h2) {
+  @apply mt-10 mb-4 text-2xl;
+}
+.prose-oasis :where(h3) {
+  @apply mt-8 mb-3 text-xl;
+}
+.prose-oasis :where(ul) {
+  @apply list-disc pl-6;
+}
+.prose-oasis :where(ol) {
+  @apply list-decimal pl-6;
+}
+.prose-oasis :where(a) {
+  @apply font-bold text-brand-dark underline;
+}
+.prose-oasis :where(blockquote) {
+  @apply my-6 border-l-4 border-brand pl-5 font-serif text-lg italic;
+}
